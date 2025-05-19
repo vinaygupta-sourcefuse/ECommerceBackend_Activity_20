@@ -97,6 +97,15 @@ export class Order extends Entity {
   })
   shippingAddress?: string;
 
+  @property({
+    type: 'string',
+  })
+  name?: string;
+
+  @property({
+    type: 'string',
+  })
+  phone?: string;
 
   constructor(data?: Partial<Order>) {
     super(data);
