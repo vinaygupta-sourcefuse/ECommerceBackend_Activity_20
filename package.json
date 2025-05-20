@@ -18,12 +18,19 @@
   },
   "homepage": "https://github.com/vinaygupta-sourcefuse/ECommerceBackend_Activity_20#readme",
   "workspaces": [
-    "services/*"
+    "services/auth",
+    "services/cart",
+    "services/category",
+    "services/order",
+    "services/product"
   ],
   "devDependencies": {
     "concurrently": "^9.1.2",
     "lerna": "^8.2.2",
     "nodemon": "^3.1.9"
   },
-  "dependencies": {}
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-errors": "^3.0.0"
+  }
 }

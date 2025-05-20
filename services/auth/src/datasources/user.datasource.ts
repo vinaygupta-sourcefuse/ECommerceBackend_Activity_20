@@ -3,13 +3,12 @@ import {juggler} from '@loopback/repository';
 
 export const config = {
   name: 'user',
-  connector: 'mysql',
-  url: 'mysql://vinay:password@localhost/auth',
+  connector: 'postgresql',
   host: 'localhost',
-  port: 3306,
-  user: 'vinay',
+  port: 5432,
+  user: 'postgres',
   password: 'password',
-  database: 'auth'
+  database: 'testdb'
 };
 
 // Observe application's life cycle to disconnect the datasource when

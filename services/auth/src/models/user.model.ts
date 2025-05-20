@@ -36,7 +36,7 @@ export class User extends Entity {
   @property({
     type: 'array',
     itemType: 'string',
-    required: true,
+    required: false,
     default: ['2'],
   })
   permissions: string[];
