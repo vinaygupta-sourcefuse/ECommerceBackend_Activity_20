@@ -22,7 +22,8 @@
     "services/cart",
     "services/category",
     "services/order",
-    "services/product"
+    "services/product",
+    "services/orderitem"
   ],
   "devDependencies": {
     "concurrently": "^9.1.2",
