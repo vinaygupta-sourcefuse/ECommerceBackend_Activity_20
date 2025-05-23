@@ -32,6 +32,8 @@
   },
   "dependencies": {
     "ajv": "^8.17.1",
-    "ajv-errors": "^3.0.0"
+    "ajv-errors": "^3.0.0",
+    "loopback4-authentication": "^12.2.0",
+    "loopback4-authorization": "^7.0.3"
   }
 }

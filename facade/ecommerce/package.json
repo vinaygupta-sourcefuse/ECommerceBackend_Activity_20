@@ -1,7 +1,7 @@
 {
-  "name": "orderitem",
+  "name": "ecommerce",
   "version": "0.0.1",
-  "description": "services",
+  "description": "ecommerce",
   "keywords": [
     "loopback-application",
     "loopback"
@@ -23,10 +23,10 @@
     "eslint:fix": "npm run eslint -- --fix",
     "pretest": "npm run rebuild",
     "test": "lb-mocha --allow-console-logs \"dist/__tests__\"",
-    "posttest": "echo \"Skipping linting\"",
+    "posttest": "npm run lint",
     "test:dev": "lb-mocha --allow-console-logs dist/__tests__/**/*.js && npm run posttest",
-    "docker:build": "docker build -t orderitem .",
-    "docker:run": "docker run -p 3000:3000 -d orderitem",
+    "docker:build": "docker build -t ecommerce .",
+    "docker:run": "docker run -p 3000:3000 -d ecommerce",
     "premigrate": "npm run build",
     "migrate": "node ./dist/migrate",
     "preopenapi-spec": "npm run build",
