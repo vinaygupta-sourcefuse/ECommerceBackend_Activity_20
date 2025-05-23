@@ -7,6 +7,7 @@ export class Order extends Entity {
     id: true,
     generated: false,
     required: true,
+    defaultFn: 'uuidv4',
   })
   id: string;
 
@@ -22,13 +23,15 @@ export class Order extends Entity {
   })
   status: string;
 
-  @property({
+   @property({
     type: 'date',
+    defaultFn: 'now',
   })
   createdAt?: string;
 
   @property({
     type: 'date',
+    defaultFn: 'now',
   })
   updatedAt?: string;
 
@@ -64,6 +67,9 @@ export class Order extends Entity {
 
   @property({
     type: 'string',
+      jsonSchema: {
+      pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{2,}$',
+    },
   })
   user_email?: string;
 
@@ -83,12 +89,14 @@ export class Order extends Entity {
   trackingNumber?: string;
 
   @property({
-    type: 'string',
+    type: 'date',
+    defaultFn: 'now',
   })
   shippedAt?: string;
 
   @property({
-    type: 'string',
+    type: 'date',
+    defaultFn: 'now',
   })
   deliverAt?: string;
 
@@ -104,6 +112,9 @@ export class Order extends Entity {
 
   @property({
     type: 'string',
+    jsonSchema: {
+      pattern: '^[0-9]{10}$',
+    },
   })
   phone?: string;
 
