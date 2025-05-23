@@ -17,6 +17,9 @@ export class User extends Entity {
 
   @property({
     type: 'string',
+     jsonSchema: {
+      pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{2,}$',
+    },
     required: true,
   })
   email: string;

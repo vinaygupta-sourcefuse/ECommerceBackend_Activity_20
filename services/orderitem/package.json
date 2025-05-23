@@ -28,7 +28,9 @@
     "docker:build": "docker build -t orderitem .",
     "docker:run": "docker run -p 3000:3000 -d orderitem",
     "premigrate": "npm run build",
-    "migrate": "node ./dist/migrate",
+    "migrate:create": "db-migrate create",
+    "migrate": "npm run build && db-migrate up",
+    "migrate:down": "db-migrate down",
     "preopenapi-spec": "npm run build",
     "openapi-spec": "node ./dist/openapi-spec",
     "prestart": "npm run rebuild",
@@ -55,7 +57,10 @@
     "@loopback/rest": "^14.0.12",
     "@loopback/rest-explorer": "^7.0.12",
     "@loopback/service-proxy": "^7.0.12",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "@loopback/sequelize": "^0.6.14",
+    "db-migrate": "^0.11.14",
+    "db-migrate-pg": "^1.5.2"
   },
   "devDependencies": {
     "@loopback/build": "^11.0.10",

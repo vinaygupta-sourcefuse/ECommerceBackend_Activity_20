@@ -9,6 +9,7 @@ import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
 import {MySequence} from './sequence';
+import {MigrationServiceProvider} from './services/migration.service.provider';
 
 export {ApplicationConfig};
 
@@ -29,6 +30,10 @@ export class OrderApplication extends BootMixin(
       path: '/explorer',
     });
     this.component(RestExplorerComponent);
+
+    
+         // Register migration service
+    this.bind('services.MigrationService').toProvider(MigrationServiceProvider); 
 
     this.projectRoot = __dirname;
     // Customize @loopback/boot Booter Conventions here

@@ -1,5 +1,6 @@
 import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
-import {juggler} from '@loopback/repository';
+// import {juggler} from '@loopback/repository';
+import { SequelizeDataSource } from '@loopback/sequelize';
 
 export const config = {
   name: 'order',
@@ -17,7 +18,7 @@ export const config = {
 // gracefully. The `stop()` method is inherited from `juggler.DataSource`.
 // Learn more at https://loopback.io/doc/en/lb4/Life-cycle.html
 @lifeCycleObserver('datasource')
-export class OrderDataSource extends juggler.DataSource
+export class OrderDataSource extends SequelizeDataSource
   implements LifeCycleObserver {
   static dataSourceName = 'order';
   static readonly defaultConfig = config;

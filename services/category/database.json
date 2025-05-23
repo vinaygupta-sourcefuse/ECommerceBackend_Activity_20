@@ -1,0 +1,11 @@
+{
+    "dev": {
+      "driver": "pg",
+      "host": "localhost",
+      "database": "demoDB",
+      "user": "postgres",
+      "password": "password",
+      "port": 5432
+    }
+  }
+  

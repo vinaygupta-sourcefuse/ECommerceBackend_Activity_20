@@ -1,5 +1,6 @@
 import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
-import {juggler} from '@loopback/repository';
+// import {juggler} from '@loopback/repository';
+import {SequelizeDataSource} from '@loopback/sequelize'
 
 export const config = {
   name: 'cart',
@@ -9,7 +10,7 @@ export const config = {
   port: 5432,
   user: 'postgres',
   password: 'password',
-  database: 'testdb'
+  database: 'testdb' // in case of migration(@loopback/sequelize), database will be choosen from the config and this  will be choosen as default(juggler ORM)
 };
 
 // Observe application's life cycle to disconnect the datasource when
@@ -17,7 +18,7 @@ export const config = {
 // gracefully. The `stop()` method is inherited from `juggler.DataSource`.
 // Learn more at https://loopback.io/doc/en/lb4/Life-cycle.html
 @lifeCycleObserver('datasource')
-export class CartDataSource extends juggler.DataSource
+export class CartDataSource extends SequelizeDataSource
   implements LifeCycleObserver {
   static dataSourceName = 'cart';
   static readonly defaultConfig = config;
