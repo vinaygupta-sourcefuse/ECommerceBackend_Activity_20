@@ -1,5 +1,5 @@
 To write a **proper PostgreSQL migration using `db-migrate`**, you'll need to follow its standard structure:
-
+ 
 ---
 
 ## ✅ Step-by-Step Guide
