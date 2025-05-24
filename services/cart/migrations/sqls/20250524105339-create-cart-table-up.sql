@@ -1,14 +1,13 @@
 /* Replace with your SQL commands */
 
-CREATE TABLE IF NOT EXISTS public.cart
-(
-    id text COLLATE pg_catalog."default" NOT NULL,
-    userId text COLLATE pg_catalog."default" NOT NULL,
-    productsId text COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT cart_pkey PRIMARY KEY (id)
-)
+/* Replace with your SQL commands */
 
-TABLESPACE pg_default;
+CREATE TABLE IF NOT EXISTS public.cart (
+    id TEXT NOT NULL,
+    userId TEXT NOT NULL,
+    productsId TEXT[] NOT NULL,
+    CONSTRAINT cart_pkey PRIMARY KEY (id)
+);
 
 ALTER TABLE IF EXISTS public.cart
-    OWNER to postgres;
+    OWNER TO postgres;

@@ -1,15 +1,15 @@
-CREATE TABLE IF NOT EXISTS public.category
-(
+CREATE TABLE IF NOT EXISTS public.category (
     id SERIAL PRIMARY KEY,
-    name text COLLATE pg_catalog."default" NOT NULL,
-    imageurl text COLLATE pg_catalog."default",
-    description text COLLATE pg_catalog."default"
+    name TEXT NOT NULL,
+    imageUrl TEXT,
+    description TEXT
 );
 
 ALTER TABLE IF EXISTS public.category
     OWNER TO postgres;
 
-    INSERT INTO public.category (name, imageurl, description) VALUES
+
+    INSERT INTO public.category (name, imageUrl, description) VALUES
     ('Camera', 'https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-madebymath-90946.jpg&fm=jpg', 'High-quality cameras for photography enthusiasts'),
     ('Watches', 'https://titanworld.com/cdn/shop/files/2648WM04_1_acea2af1-a8c4-4d06-83a3-b43381097683.jpg?v=1730812321&width=2000', 'Best Collection of Watches'),
     ('4K Ultra HD Monitor', 'https://imgs.search.brave.com/xWLhj2WZWRvM91Lgxl9Ww9o9QbsZaxtV2GVd2GUtAMg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFGR3EzQWFVYUwu/anBn', 'Crisp 27-inch 4K display with vibrant colors for professionals and gamers.'),

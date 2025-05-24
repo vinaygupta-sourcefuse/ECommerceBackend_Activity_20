@@ -1,30 +1,36 @@
-/* Replace with your SQL commands */
+-- ============================================================================
+-- Table: "order"
+-- 
+-- Notes:
+-- - Table name "order" is quoted due to being a reserved keyword in PostgreSQL.
+-- - Primary key uses UUID with DEFAULT gen_random_uuid() (reflects defaultFn: 'uuidv4').
+-- - All monetary values are stored as NUMERIC for precision and financial safety.
+-- - Columns such as user_email, shipping_method, etc., are nullable (optional).
+-- - The phone field does not enforce a pattern at the DB level; validation is expected at the application or constraint level.
+-- ============================================================================
 
-CREATE TABLE IF NOT EXISTS public."order"
-(
-    id text COLLATE pg_catalog."default" NOT NULL,
-    user_id text COLLATE pg_catalog."default" NOT NULL,
-    status text COLLATE pg_catalog."default" NOT NULL,
-    createdAt timestamp with time zone,
-    updatedAt timestamp with time zone,
-    subtotal integer DEFAULT 0,
-    taxAmount integer DEFAULT 0,
-    shippingAmount integer DEFAULT 0,
-    discountAmount integer DEFAULT 0,
-    grandTotal integer DEFAULT 0,
-    user_email text COLLATE pg_catalog."default",
-    shippingMethod text COLLATE pg_catalog."default",
-    shippingStatus text COLLATE pg_catalog."default",
-    trackingNumber text COLLATE pg_catalog."default",
-    shippedAt timestamp with time zone,
-    deliverAt timestamp with time zone,
-    shippingAddress text COLLATE pg_catalog."default",
-    name text COLLATE pg_catalog."default",
-    phone text COLLATE pg_catalog."default",
-    CONSTRAINT order_pkey PRIMARY KEY (id)
-)
-
-TABLESPACE pg_default;
+CREATE TABLE IF NOT EXISTS public."order" (
+    
+    id TEXT PRIMARY KEY NOT NULL,
+    user_id TEXT NOT NULL,
+    status TEXT NOT NULL,
+    createdAt TEXT DEFAULT now()::TEXT,
+    updatedAt TEXT DEFAULT now()::TEXT,
+    subtotal INTEGER DEFAULT 0,
+    taxAmount INTEGER DEFAULT 0,
+    shippingAmount INTEGER DEFAULT 0,
+    discountAmount INTEGER DEFAULT 0,
+    grandTotal INTEGER DEFAULT 0,
+    user_email TEXT,
+    shippingMethod TEXT,
+    shippingStatus TEXT,
+    trackingNumber TEXT,
+    shippedAt TEXT DEFAULT now()::TEXT,
+    deliverAt TEXT DEFAULT now()::TEXT,
+    shippingAddress TEXT,
+    name TEXT,
+    phone TEXT
+);
 
 ALTER TABLE IF EXISTS public."order"
-    OWNER to postgres;
+    OWNER TO postgres;
