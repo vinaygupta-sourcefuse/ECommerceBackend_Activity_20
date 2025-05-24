@@ -21,9 +21,9 @@ ALTER TABLE IF EXISTS public."user"
 CREATE TABLE IF NOT EXISTS public.refreshtoken
 (
     token text COLLATE pg_catalog."default" NOT NULL,
-    userid integer NOT NULL,
-    expiresat text COLLATE pg_catalog."default" NOT NULL,
-    createdat text COLLATE pg_catalog."default" DEFAULT '2025-05-20T13:31:50.333Z'::text,
+    userId integer NOT NULL,
+    expiresAt text COLLATE pg_catalog."default" NOT NULL,
+    createdAt text COLLATE pg_catalog."default" DEFAULT '2025-05-20T13:31:50.333Z'::text,
     CONSTRAINT refreshtoken_pkey PRIMARY KEY (token)
 )
 

@@ -10,7 +10,7 @@ export const config = {
   port: 5432,
   user: 'postgres',
   password: 'password',
-  database: 'testdb' // in case of migration(@loopback/sequelize), database will be choosen from the config and this  will be choosen as default(juggler ORM)
+  database: 'demoDB' // in case of migration(@loopback/sequelize), database will be choosen from the config and this  will be choosen as default(juggler ORM)
 };
 
 // Observe application's life cycle to disconnect the datasource when

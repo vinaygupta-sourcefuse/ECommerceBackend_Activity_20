@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS public.product
     price integer NOT NULL,
     discount integer NOT NULL,
     images text COLLATE pg_catalog."default" NOT NULL,
-    categoryid text COLLATE pg_catalog."default" NOT NULL,
-    brandid text COLLATE pg_catalog."default" NOT NULL,
+    categoryId text COLLATE pg_catalog."default" NOT NULL,
+    brandId text COLLATE pg_catalog."default" NOT NULL,
     stock integer NOT NULL,
     CONSTRAINT product_pkey PRIMARY KEY (id)
 )
@@ -22,7 +22,7 @@ ALTER TABLE IF EXISTS public.product
 
 
 
-INSERT INTO product (id, name, description, price, discount, images, categoryid, brandid, stock) VALUES
+INSERT INTO product (id, name, description, price, discount, images, categoryId, brandId, stock) VALUES
 ('1', 'Camera', 'High-quality DSLR camera with advanced features.', 500, 0, '["https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-madebymath-90946.jpg&fm=jpg"]', '1', 'brand-001', 20),
 ('2', 'Camera Lens', 'Wide-angle lens for capturing stunning landscapes.', 300, 0, '["https://images.pexels.com/photos/274973/pexels-photo-274973.jpeg?cs=srgb&dl=pexels-pixabay-274973.jpg&fm=jpg"]', '1', 'brand-002', 15),
 ('3', 'Camera Tripod', 'Lightweight and durable tripod for stable shots.', 150, 0, '["https://i.natgeofe.com/n/cae95353-dd17-41f9-85f3-9699745e7ce9/MM10326_20241009_0001.jpg"]', '1', 'brand-003', 25),

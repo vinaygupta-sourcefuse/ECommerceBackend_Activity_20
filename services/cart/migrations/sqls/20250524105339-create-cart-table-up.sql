@@ -3,8 +3,8 @@
 CREATE TABLE IF NOT EXISTS public.cart
 (
     id text COLLATE pg_catalog."default" NOT NULL,
-    userid text COLLATE pg_catalog."default" NOT NULL,
-    productsid text COLLATE pg_catalog."default" NOT NULL,
+    userId text COLLATE pg_catalog."default" NOT NULL,
+    productsId text COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT cart_pkey PRIMARY KEY (id)
 )
 

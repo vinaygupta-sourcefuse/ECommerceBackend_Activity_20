@@ -3,7 +3,7 @@
 CREATE TABLE IF NOT EXISTS public.orderitem
 (
     id text COLLATE pg_catalog."default" NOT NULL,
-    productsid text COLLATE pg_catalog."default" NOT NULL,
+    productsId text COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT orderitem_pkey PRIMARY KEY (id)
 )
 
