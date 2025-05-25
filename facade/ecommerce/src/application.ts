@@ -22,15 +22,15 @@ export class EcommerceApplication extends BootMixin(
     super(options);
 
 
-     //Authentication:
-     this.component(AuthenticationComponent);
-     this.bind(Strategies.Passport.BEARER_TOKEN_VERIFIER).toProvider(
-       BearerTokenVerifyProvider,
-     );
+    //  //Authentication:
+    //  this.component(AuthenticationComponent);
+    //  this.bind(Strategies.Passport.BEARER_TOKEN_VERIFIER).toProvider(
+    //    BearerTokenVerifyProvider,
+    //  );
  
-     //Authorization:
-     this.bind('sf.userAuthorization.config').to({});
-     this.component(AuthorizationComponent);
+    //  //Authorization:
+    //  this.bind('sf.userAuthorization.config').to({});
+    //  this.component(AuthorizationComponent);
 
 
     // Set up the custom sequence

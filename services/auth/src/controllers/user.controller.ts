@@ -16,14 +16,16 @@ import {
   del,
   requestBody,
   response,
+  HttpErrors,
 } from '@loopback/rest';
 import {User} from '../models';
 import {UserRepository} from '../repositories';
+import {hash} from 'bcrypt';
 
 export class UserController {
   constructor(
     @repository(UserRepository)
-    public userRepository : UserRepository,
+    public userRepository: UserRepository,
   ) {}
 
   @post('/users')
@@ -37,13 +39,24 @@ export class UserController {
         'application/json': {
           schema: getModelSchemaRef(User, {
             title: 'NewUser',
-            
           }),
         },
       },
     })
     user: User,
   ): Promise<User> {
+    // Hash the password before saving
+    const existingUser = await this.userRepository.findOne({
+            where: {name: user.name},
+          });
+    
+          if (existingUser) {
+            throw new HttpErrors.Conflict('Username already exists');
+          }
+    
+    if (user.password) {
+      user.password = await hash(user.password as string, 10);
+    }
     return this.userRepository.create(user);
   }
 

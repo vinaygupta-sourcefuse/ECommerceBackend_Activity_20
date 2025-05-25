@@ -61,7 +61,10 @@
     "db-migrate": "^0.11.14",
     "db-migrate-pg": "^1.5.2",
     "loopback-connector-postgresql": "^7.2.1",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "dev": "npm run build && concurrently \"npm:watch\" \"npm:start:watch\"",
+    "watch": "lb-tsc --watch",
+    "start:watch": "nodemon --watch dist --ext js --exec \"node -r source-map-support/register .\""
   },
   "devDependencies": {
     "@loopback/build": "^11.0.10",

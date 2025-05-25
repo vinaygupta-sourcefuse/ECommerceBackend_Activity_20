@@ -6,7 +6,7 @@
 
 CREATE TABLE IF NOT EXISTS public."user" (
     user_id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
+    name TEXT NOT NULL UNIQUE,
     email TEXT NOT NULL,
     password TEXT NOT NULL,
     role TEXT NOT NULL,
