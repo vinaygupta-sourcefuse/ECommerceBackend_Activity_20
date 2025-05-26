@@ -45,6 +45,12 @@ export class User extends Entity {
   })
   permissions: string[];
 
+  @property({
+    type: 'string',
+    required: false,
+  })
+  google_user_id?: string;
+  
   constructor(data?: Partial<User>) {
     super(data);
   }

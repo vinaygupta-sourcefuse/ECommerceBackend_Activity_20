@@ -50,7 +50,7 @@ export class AuthController {
         },
         process.env.JWT_SECRET || '1',
         {
-          expiresIn: '1m', // Short expiration (15 minutes)
+          expiresIn: '6m', // Short expiration (15 minutes)
           issuer: process.env.JWT_ISSUER || 'issuer',
         },
       );
@@ -166,7 +166,7 @@ export class AuthController {
         },
         process.env.JWT_SECRET || '1',
         {
-          expiresIn: '1m',
+          expiresIn: '6m',
           issuer: process.env.JWT_ISSUER || 'issuer',
         },
       );
@@ -207,10 +207,11 @@ export class AuthController {
           email: user.email,
           role: user.role,
           permissions: ['2'],
+          google_user_id: user.google_user_id,
         },
         process.env.JWT_SECRET || '1',
         {
-          expiresIn: '1m', // Short expiration (15 minutes)
+          expiresIn: '6m', // Short expiration (15 minutes)
           issuer: process.env.JWT_ISSUER || 'issuer',
         },
       );

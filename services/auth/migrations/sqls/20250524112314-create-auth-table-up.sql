@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS public."user" (
     email TEXT NOT NULL,
     password TEXT NOT NULL,
     role TEXT NOT NULL,
-    permissions TEXT[] DEFAULT ARRAY['2']
+    permissions TEXT[] DEFAULT ARRAY['2'],
+    google_user_id TEXT DEFAULT NULL
 );
 
 ALTER TABLE IF EXISTS public."user"
