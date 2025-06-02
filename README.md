@@ -401,30 +401,71 @@ CREATE TABLE main.notifications (
 );
 ```
 ---
-More actions
-`{
-  "subject": "string",
-  "body": "Kindly Don't Reply to this email",
-  "receiver": {"to":[{"id":"vinay.gupta@sourcefuse.com"}]},
-  "type": 1,
-  "sentDate": "2025-05-16T08:46:08.597Z",
-  "options": {"id":"vinay.gupta@sourcefuse.com","to":"vinay.gupta@sourcefuse.com","from":"abhisheksingh55568@gmail.com","subject":"Testing case","body":"Kindly Don't Reply to this email"},
-  "groupKey": "string",
-  "isCritical": true
-}`
----
-reduced one is
----
-` {
-  "subject": "string",
-  "body": "Kindly Don't Reply to this email, er rt",
-  "receiver": {"to":[{"id":"vinay.gupta@sourcefuse.com"}]},
-  "type": 1,
-  "options": {"to":"vinay.gupta@sourcefuse.com","from":"abhisheksingh55568@gmail.com","subject":"Testing case"},
-  "isCritical": trueAdd commentMore actions
-}`
+Sure! Here's a **clean and well-documented version** of your JSON payloads for use in technical documentation, making it easier for developers or stakeholders to understand.
+
 ---
 
+## 📤 Full Email Payload (Detailed Version)
+
+```json
+{
+  "subject": "string",
+  "body": "Kindly Don't Reply to this email",
+  "receiver": {
+    "to": [
+      { "id": "vinay.gupta@sourcefuse.com" }
+    ]
+  },
+  "type": 1,
+  "sentDate": "2025-05-16T08:46:08.597Z",
+  "options": {
+    "id": "vinay.gupta@sourcefuse.com",
+    "to": "vinay.gupta@sourcefuse.com",
+    "from": "abhisheksingh55568@gmail.com",
+    "subject": "Testing case",
+    "body": "Kindly Don't Reply to this email"
+  },
+  "groupKey": "string",
+  "isCritical": true
+}
+```
+
+### 🔍 Description
+
+| Field         | Type      | Description                                                                 |
+| ------------- | --------- | --------------------------------------------------------------------------- |
+| `subject`     | `string`  | The email subject line.                                                     |
+| `body`        | `string`  | The main content of the email.                                              |
+| `receiver.to` | `array`   | A list of recipient objects, each with an `id` (email address).             |
+| `type`        | `number`  | Type identifier (e.g., 1 = email, 2 = SMS, etc.).                           |
+| `sentDate`    | `string`  | ISO timestamp when the message was sent.                                    |
+| `options`     | `object`  | Email-specific config including sender, recipient, subject, and body.       |
+| `groupKey`    | `string`  | Optional key for logically grouping notifications (e.g., by feature/event). |
+| `isCritical`  | `boolean` | Indicates whether the message is marked as critical.                        |
+
+---
+this payload is for /notifications and token require permission : [2]
+
+## 📦 Reduced Email Payload (Minimal Version)
+
+```json
+{
+  "subject": "string",
+  "body": "Kindly Don't Reply to this email, er rt",
+  "receiver": {
+    "to": [
+      { "id": "vinay.gupta@sourcefuse.com" }
+    ]
+  },
+  "type": 1,
+  "options": {
+    "to": "vinay.gupta@sourcefuse.com",
+    "from": "abhisheksingh55568@gmail.com",
+    "subject": "Testing case"
+  },
+  "isCritical": true
+}
+```
 **Key Features**:
 - User-specific notifications
 - Read status tracking
@@ -432,14 +473,8 @@ reduced one is
 - Critical notifications flag
 - Grouped notifications
 - Permission '2' needed into accessToken
-
-## Common Technical Stack
-- **Database**: PostgreSQL
-- **ORM**: Sequelize (@loopbacl/sequelize provided by arc)
-- **Authentication**: HTTP Bearer (ARC by SourceFuse)
-- **Monorepo Management**: Lerna
-- **API Style**: RESTful
-
+  
+---
 ## Workflow Integration
 1. **User Flow**:
    - Auth service handles authentication
