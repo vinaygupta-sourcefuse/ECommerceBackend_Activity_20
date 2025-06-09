@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS main.auth_clients (
 	deleted_by           uuid   ,
 	deleted_on           timestamptz   ,
 	tenant_id			uuid   ,
-	allowed_clients      text[]
+	allowed_clients      text[],
 	description          text   ,
 	CONSTRAINT pk_roles_id PRIMARY KEY ( id )
  );
